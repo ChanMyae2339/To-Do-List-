@@ -9,8 +9,12 @@ const Cart = ({ data, deleteData, editData, updateData }) => {
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const onCloseModal = () =>{setOpen(false);
+    // setCurrent(null);
+    // setCurrent('');
+  } ;
   const [editText, setEditText] = useState("");
+  const [current,setCurrent]=useState(null);
 
   const submit = (id) => {
     confirmAlert({
@@ -45,7 +49,7 @@ const Cart = ({ data, deleteData, editData, updateData }) => {
               onChange={() => {
                 updateData(d.id, !d.complete);
               }}
-              checked={d.complete === true}
+              checked={d.complete }
             />
             {d.task}
           </div>
@@ -55,11 +59,14 @@ const Cart = ({ data, deleteData, editData, updateData }) => {
               onClick={() => {
                 console.log("edit", editText);
                 setEditText(d.task);
+                setCurrent(d)
                 onOpenModal();
               }}
             >
               <i className="fa-solid fa-pen-to-square text-blue-500"></i>
             </button>
+           
+           
             <button
               onClick={() => {
                 submit(d.id);
@@ -70,7 +77,7 @@ const Cart = ({ data, deleteData, editData, updateData }) => {
           </div>
         </div>
       ))}
-      {editText && (
+      {current && (
         <Modal open={open} onClose={onCloseModal} center>
           <div className="flex flex-col gap-2 items-end">
             <textarea
@@ -86,8 +93,9 @@ const Cart = ({ data, deleteData, editData, updateData }) => {
             <button
               className="rounded-lg bg-gray-100 p-3 w-[100px]"
               onClick={() => {
-                editData(editText, d.id);
+                editData(editText, current.id);
                 onCloseModal();
+                
               }}
             >
               Confirm

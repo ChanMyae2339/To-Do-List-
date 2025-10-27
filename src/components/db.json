@@ -3,26 +3,21 @@
     {
       "id": "5",
       "task": "Learn English",
-      "complete": false
+      "complete": true
     },
     {
       "id": "6",
       "task": "Listening Music",
-      "complete": false
+      "complete": true
     },
     {
       "id": "8870f1bf-678d-4456-8b6d-a2e21120b7df",
       "task": "Do Workout",
-      "complete": false
-    },
-    {
-      "id": "55b28854-0697-4b56-8454-af67d2fcef58",
-      "task": "ggg",
-      "complete": false
+      "complete": true
     },
     {
       "id": "dced1ce3-f7b7-44a0-b127-b05da2225ddb",
-      "task": "gggggg",
+      "task": "Do Workout",
       "complete": false
     }
   ]
